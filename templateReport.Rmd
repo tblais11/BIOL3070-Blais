@@ -1,7 +1,7 @@
 ---
 title: "Untitled"
-author: "Your Name Here"
-date: "2025-??-??"
+author: "Trenton Blais"
+date: "2025-09-16"
 output:
   github_document:
     toc: true
@@ -11,7 +11,26 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## R Markdown
+
+
+#Abstract
+## Background
+Fill in some text here that provides background info on 
+
+# Major Question
+Fill in here the question I want to answer
+
+# Methods
+
+Fill in here including overview of procedure and methods used for this project
+## Fill in name of first analysis
+
+
+''' (r analysis)
+#put code here
+'''
+
+
 
 This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
 
@@ -21,12 +40,21 @@ When you click the **Knit** button a document will be generated that includes bo
 summary(cars)
 ```
 
+## Fill in name of second analysis/plot
+
+## Discussion
+
+## Conclusion
+
+
 ## Including Plots
 
 You can also embed plots, for example:
 
 ```{r pressure, echo=FALSE}
-plot(pressure)
+plot(pressure) 
 ```
 
 Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+
