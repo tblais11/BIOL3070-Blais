@@ -1,7 +1,7 @@
 Warm-up mini-Report: Mosquito Blood Hosts in Salt Lake City, Utah
 ================
 Trenton Blais
-2025-10-09
+2025-10-11
 
 - [ABSTRACT](#abstract)
 - [BACKGROUND](#background)
@@ -10,13 +10,13 @@ Trenton Blais
   - [Hypothesis](#hypothesis)
   - [Prediction](#prediction)
 - [METHODS](#methods)
-  - [Fill in first analysis](#fill-in-first-analysis)
-  - [Fill in second analysis/plot](#fill-in-second-analysisplot)
+  - [First Analysis](#first-analysis)
+  - [Second analysis/plot](#second-analysisplot)
 - [DISCUSSION](#discussion)
   - [Interpretation - Bloodmeal Bar
     plot](#interpretation---bloodmeal-bar-plot)
-  - [Interpretation - Linear model and
-    p-value](#interpretation---linear-model-and-p-value)
+  - [Interpretation - Linear models and
+    p-value](#interpretation---linear-models-and-p-value)
 - [CONCLUSION](#conclusion)
 - [REFERENCES](#references)
 
@@ -40,7 +40,8 @@ in the bloodstream of the house finch for quite a long time compared to
 other birds (Komar et al., 2003) as the figure below details. This could
 have major implications in the amplification of West Nile Virus if
 mosquitoes often get blood meals from the house finch. In this study, we
-will look to answer that very question.
+will look to answer that very question, namely which bird species is
+likely acting as an amplifying host of West Nile Virus?
 
 ``` r
 # Manually transcribe duration (mean, lo, hi) from the last table column
@@ -123,27 +124,33 @@ the trap locations where they feed on House Finches most often.
 # METHODS
 
 To determine where mosquitoes were getting blood meals from, and if
-their hosts were infected, we trapped many mosquitoes within Salt Lake
-City, and sequenced their blood meals. Once the mosquitoes were trapped,
-and the ones with the blood meal separated, we crushed them up to get to
-the blood of their last meal in order to initiate PCR. Once we crushed
-up the mosquito blood mixture, we added a master mix. The master mix is
-composed of various amounts of water, buffers, and polymerases (such as
-taq polymerase) that are critical for a successful PCR. We also added in
-a highly conserved DNA template that the amplifying genetic material in
-PCR bound to. Finally, we put it into a thermocycler, which in
-alternating settings of heat and cool accelerated the amplification
-process of the target DNA.
+their hosts were infected with West Nile Virus, the first step was to
+trap them using gravid traps. Gravid traps mimic a good breeding site,
+and is therefore more likely to attract mosquitoes that had a blood
+meal. Once the mosquitoes were trapped, we kept the ones with a recent
+blood meal. To get to the blood meal and more specifically its DNA we
+crushed up the mosquito and ran the blood through PCR to amplify the
+host’s genome. For a brief PCR refresher, we added a master mix to the
+crushed mosquito/blood meal mix. The master mix is composed of various
+amounts of water, buffers, and polymerases (such as taq polymerase) that
+are critical for a successful PCR. We also added in a highly conserved
+DNA template that the amplifying genetic material in PCR bound to.
+Finally, we put it into a thermocycler, which in alternating settings of
+heat and cool accelerated the amplification process of the target DNA.
 
 Once the PCR was finished, we sequenced the genomes of all the
 mosquitoes’ blood meals and found a wide range of blood meals from house
-finches to flamingos to humans. Using this data, we compared the blood
-meals between hosts positive for West Nile Virus and hosts negative to
-West Nile Virus. Using this information we were able to come to
-conclusions about which host species was most likely to act as a
-amplifying host of West Nile Virus.
+finches to flamingos to humans. Using this data, we compared which bird
+species mosquitoes got the most blood meals from, and which of those
+blood meals tested positive for West Nile Virus. We found that most of
+the blood meals came from either House Finches, House Sparrows, or the
+American Robin, while the majority of positive results came from the
+House Finch. Finally, we ran a couple general linear models to test if
+there was a positive association of House Finches acting as an amplifier
+of WNV in Salt Lake City, which there was. All data and models are in
+our analysis sections.
 
-## Fill in first analysis
+## First Analysis
 
 ``` r
 ## import counts_matrix: data.frame with column 'loc_positives' (0/1) and host columns 'host_*'
@@ -241,14 +248,14 @@ par(op)
 host_species_colors <- species_colors
 ```
 
-This bar graph compares the positive and negative WNV bloodmeal results.
-It shows the House Finch, House Sparrow and American Robin are the three
-birds mosquitoes most often got a blood meal from, and the House Finch
-especially tests high in positive WNV. A side note for clarification the
-bar graph on the right is the one showing positive WNV results, while
-the left side is negative.
+This bar graph compares the positive and negative WNV blood meal
+results. It shows the House Finch, House Sparrow and American Robin are
+the three birds mosquitoes most often got a blood meal from, and the
+House Finch especially tests high in positive WNV. A side note for
+clarification the bar graph on the right is the one showing positive WNV
+results, while the left side is negative.
 
-## Fill in second analysis/plot
+## Second analysis/plot
 
 ``` r
 # second-analysis-or-plot, glm with house finch alone against binary +/_
@@ -305,42 +312,49 @@ summary(glm2)
     ## 
     ## Number of Fisher Scoring iterations: 2
 
-To further support our hypothesis we ran this linear statistical model
-to test if the presence of house finches would also increase the rate of
-positive WNV tests. The results show a significant p-value of 0.0287 in
-support of our hypothesis.
+To further support our hypothesis we ran two general linear models. The
+top model gave us p-value of 0.0287 in support of a positive
+relationship between House Finches and getting a positive WNV test. We
+got a p-value of 6.07\*10^-15 in the second GLM supporting a positive
+relationship between getting a positive test result, and that result
+being of a House Finch.
 
 # DISCUSSION
 
-The above data and statistics absolutely support our hypothesis that
-House Finches act as an amplifier of West Nile Virus in Salt Lake City.
-House Finches were one of the most common blood meals for mosquitoes,
-and they were the only ones to have significantly more positive counts
-of viremia than any other host, supporting our prediction. Further
-detail on how the data supports our hypothesis is listed in the
-interpretations sections.
+The above data and statistics support our hypothesis that House Finches
+act as an amplifier of West Nile Virus in Salt Lake City. House Finches
+were one of the most common blood meals for mosquitoes, and they were
+the only ones to have significantly more positive counts of viremia than
+any other host, supporting our prediction. That being said, this study
+is limited to specific regions of Salt Lake City, and may not translate
+to other areas even within Utah. Different mosquito species and
+different host options can mean a different amplifying host. Despite
+this limitation, House Finches seem statistically likely to be an
+amplifier in Salt Lake City, and we recommend any other regions with
+high House Finch concentration to look into the bird as a potential
+amplifier for their region as well.
 
 ## Interpretation - Bloodmeal Bar plot
 
-The bar plot gives us a lot of great information. It shows the
-approximate number of blood meals from each species found and if the
-hosts of those blood meals were positive for WNV. The results show that
-the House Finch, House Sparrow, and Robin were the three most common
-blood meals in general. The latter two show about the same amount of
-positive and negative hosts, implying they are a more random and
-inconsistent amplifier. Blood meals from House Finches, on the other
-hand, showed a drastic increase in positive WNV cases highlighting their
-potential importance for amplification of the disease.
+The bar plot shows the approximate number of blood meals from each
+species found and if the hosts of those blood meals were positive for
+WNV. The results show that the House Finch, House Sparrow, and Robin
+were the three most common blood meals in general. The latter two show
+about the same amount of positive and negative hosts, implying they are
+a more random and inconsistent amplifier. Blood meals from House
+Finches, on the other hand, showed a drastic increase in positive WNV
+cases highlighting their potential importance for amplification of the
+disease.
 
-## Interpretation - Linear model and p-value
+## Interpretation - Linear models and p-value
 
 The linear statistical model we ran afterwards supported this
 amplification hypothesis as well. We compared the number of House Finch
 blood meals to the rate of positive WNV sites, and found of p-value of
-0.0287. This suggests that there is less than a 3% chance this
-correlation is strictly due to chance, and is a further support to our
-hypothesis that House Finches could be a primary amplifier of West Nile
-Virus in Salt Lake City area.
+0.0287. We also compared positive House Finch blood meals to positive
+blood meals in general in found a p-value of 6.07\*10^-15. Both of these
+models give a positive relationship in support of our hypothesis that
+House Finches act as an amplifying host of WNV in Salt Lake City.
 
 # CONCLUSION
 
@@ -373,4 +387,4 @@ taken to mitigate their potential risk.
 
 3.  ChatGPT. OpenAI, version Jan 2025. Used as a reference for functions
     such as plot(viremia) and to correct syntax errors. Accessed
-    2025-10-09.
+    2025-10-11.
