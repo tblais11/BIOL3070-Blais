@@ -1,7 +1,7 @@
 Warm-up mini-Report: Mosquito Blood Hosts in Salt Lake City, Utah
 ================
 Trenton Blais
-2025-10-11
+2025-10-20
 
 - [ABSTRACT](#abstract)
 - [BACKGROUND](#background)
@@ -79,7 +79,7 @@ arrows(duration$lo, bp, duration$hi, bp,
        angle=90, code=3, length=0.05, col="black", xpd=TRUE)
 ```
 
-<img src="Warm-up-mosquitoes-[Trenton-Blais]_files/figure-gfm/viremia-1.png" style="display: block; margin: auto auto auto 0;" />
+<img src="Warm-up-mosquitoes-final-[Trenton-Blais]_files/figure-gfm/viremia-1.png" style="display: block; margin: auto auto auto 0;" />
 
 To determine what mosquitoes preyed on most, we used PCR to amplify the
 DNA from their last blood meal and sequenced it determine the species.
@@ -239,7 +239,7 @@ barplot(height = counts1,
         xlim = xlim_use)
 ```
 
-![](Warm-up-mosquitoes-%5BTrenton-Blais%5D_files/figure-gfm/first-analysis-1.png)<!-- -->
+![](Warm-up-mosquitoes-final-%5BTrenton-Blais%5D_files/figure-gfm/first-analysis-1.png)<!-- -->
 
 ``` r
 par(op)
@@ -387,4 +387,4 @@ taken to mitigate their potential risk.
 
 3.  ChatGPT. OpenAI, version Jan 2025. Used as a reference for functions
     such as plot(viremia) and to correct syntax errors. Accessed
-    2025-10-11.
+    2025-10-20.
